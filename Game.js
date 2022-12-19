@@ -27,10 +27,10 @@ class Game{
 		for (let i = 0; i < this.players.length; i++) {
 			this.ctx.drawImage(
 				this.images[this.players[i].state], 
-				this.players[i].position.x - (105/2), 
-				this.players[i].position.y - (105/2), 
-				105, 
-				105
+				this.players[i].position.x - (35/2), 
+				this.players[i].position.y - (35/2), 
+				35, 
+				35
 			)
 		}
 	}
@@ -49,7 +49,7 @@ class Game{
 				dx = this.players[i].position.x - this.players[n].position.x;
 				dy = this.players[i].position.y - this.players[n].position.y;
 				distance = Math.sqrt(dx**2 + dy**2);
-				if(distance <= 105){
+				if(distance <= 35){
 					if(this.players[i].state == 'rock'){
 						if(this.players[n].state == 'paper') this.players[i].state = 'paper';
 						if(this.players[n].state == 'scissors') this.players[n].state = 'rock';

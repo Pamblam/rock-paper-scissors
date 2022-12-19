@@ -2,7 +2,7 @@ class Player{
 	
 	constructor(ctx, state){
 		this.state = state;
-		this.position = new RandomMovement(ctx, 105, 5);
+		this.position = new RandomMovement(ctx, 35, 3);
 	}
 	
 	getRandomInt(min, max){
