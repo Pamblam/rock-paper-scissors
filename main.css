@@ -1,4 +1,24 @@
-body, html, canvas{
+*{
 	padding: 0;
 	margin: 0;
+}
+
+#overlay {
+	background: rgba(0,0,0,.5);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+#modal{
+	padding: 1em;
+	border: 1px solid black;
+	background: white;
+	border-radius: 1em;
+	text-align: center;
 }

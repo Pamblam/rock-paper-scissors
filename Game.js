@@ -9,13 +9,6 @@ class Game{
 		
 		this.players = [];
 		
-		var total_players = 30;
-		var n_of_type = Math.floor(total_players / 3);
-		
-		for(var x = 50; x <= n_of_type){
-			
-		}
-		
 		for(let i=10; i--;) this.players.push(new Player(ctx, 'rock'));
 		for(let i=10; i--;) this.players.push(new Player(ctx, 'paper'));
 		for(let i=10; i--;) this.players.push(new Player(ctx, 'scissors'));
@@ -43,6 +36,10 @@ class Game{
 	}
 	
 	update(){
+		var rocks = 0;
+		var papers = 0;
+		var scissors = 0;
+		
 		for (let i = 0; i < this.players.length; i++) {
 			this.players[i].position.update();
 			
@@ -53,7 +50,6 @@ class Game{
 				dy = this.players[i].position.y - this.players[n].position.y;
 				distance = Math.sqrt(dx**2 + dy**2);
 				if(distance <= 105){
-					console.log("overlap");
 					if(this.players[i].state == 'rock'){
 						if(this.players[n].state == 'paper') this.players[i].state = 'paper';
 						if(this.players[n].state == 'scissors') this.players[n].state = 'rock';
@@ -68,7 +64,25 @@ class Game{
 					}
 				}
 			}
+			if(this.players[i].state == 'rock') rocks++;
+			if(this.players[i].state == 'paper') papers++;
+			if(this.players[i].state == 'scissors') scissors++;
+			
 		}
+		
+		if(rocks === 30) {
+			alert('Rock wins!');
+			this.running = false;
+		}
+		if(papers === 30) {
+			alert('Paper wins!');
+			this.running = false;
+		}
+		if(scissors === 30) {
+			alert('Scissors wins!');
+			this.running = false;
+		}
+		
 	}
 	
 	async mainLoop(force=true){

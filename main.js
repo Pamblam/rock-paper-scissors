@@ -5,12 +5,14 @@
 	canvas.width = innerWidth;
 	const ctx = canvas.getContext("2d");
 	
-	alert("Rock Paper Scissors Battle Royale...");
-	
 	const game = new Game(ctx);
 	await game.load();
 	game.draw();
 	
-	//game.start();
+	document.getElementById('start').addEventListener('click', function(e){
+		e.preventDefault();
+		document.getElementById('overlay').remove();
+		game.start();
+	});
 	
 })();
